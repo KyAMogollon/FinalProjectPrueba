@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     DoubleCircularNode <GameObject> powerUps;
     [SerializeField] GameObject CurrentPower;
     [SerializeField] GameObject player;
+    Vector3 movementPlayer;
     void Start()
     {
         powerUps = new DoubleCircularNode<GameObject>();
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
+        _rb.velocity =new Vector3( movementPlayer.x*speed,_rb.velocity.y,_rb.velocity.z);
     }
     void Jump()
     {
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext value)
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
-        _rb.velocity = new Vector3(inputMovement.x*speed, _rb.velocity.y, _rb.velocity.z);
+        movementPlayer = new Vector3(inputMovement.x, 0, 0);
     }
     public void OnMovementFront(InputAction.CallbackContext value)
     {
