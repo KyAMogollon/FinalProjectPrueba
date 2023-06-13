@@ -29,30 +29,6 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if(Physics.Raycast(transform.position, Vector3.forward, 3f))
-        {
-
-        }else
-        {
-            //if (Input.GetKeyDown(KeyCode.W) && isOtherSide == true)
-            //{
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 3);
-                isOtherSide = false;
-            //}
-        }
-        Debug.DrawRay(transform.position, Vector3.forward*3f,Color.red);
-        if(Physics.Raycast(transform.position, Vector3.back, 5f))
-        {
-
-        }else
-        {
-            if (Input.GetKeyDown(KeyCode.S) && isOtherSide == false)
-            {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
-                isOtherSide = true;
-            }
-        }
-        Debug.DrawRay(transform.position, Vector3.back * 5f, Color.red);
         ChooseAbility();
     }
     private void FixedUpdate()
@@ -100,10 +76,35 @@ public class PlayerController : MonoBehaviour
         Vector2 inputMovement = value.ReadValue<Vector2>();
         _rb.velocity = new Vector3(inputMovement.x*speed, _rb.velocity.y, _rb.velocity.z);
     }
-    public void OnMovement1(InputAction.CallbackContext value)
+    public void OnMovementFront(InputAction.CallbackContext value)
     {
-        Vector2 inputMovement = value.ReadValue<Vector2>();
-        _rb.velocity = new Vector3(inputMovement.x , _rb.velocity.y, _rb.velocity.z * speed);
+        if (Physics.Raycast(transform.position, Vector3.forward, 3f))
+        {
+
+        }
+        else
+        {
+            if (value.started && isOtherSide == true)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 3);
+                isOtherSide = false;
+            }
+        }
+    }
+    public void OnMovementBack(InputAction.CallbackContext value)
+    {
+        if (Physics.Raycast(transform.position, Vector3.back, 5f))
+        {
+
+        }
+        else
+        {
+            if (value.started && isOtherSide == false)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
+                isOtherSide = true;
+            }
+        }
     }
     public void OnJump(InputAction.CallbackContext value)
     {

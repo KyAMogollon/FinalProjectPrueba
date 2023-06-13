@@ -21,12 +21,21 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
                     "type": "Button",
                     "id": "410d4ae7-6c1e-4570-8ad3-760c4f121ffa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MovementBack",
+                    "type": "Button",
+                    "id": "ef4cdc3c-9146-4401-8772-289d1d40d67c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -84,8 +93,19 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KeyBoard",
                     "action": "MovementFront",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c3f04cd8-bfed-40db-8b79-4c63486e2cfd",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard",
+                    "action": "MovementBack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
