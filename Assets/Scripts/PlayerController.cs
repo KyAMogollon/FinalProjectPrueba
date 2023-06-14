@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     }
     void ChooseAbility()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        /*if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             CurrentPower=powerUps.NexNode().Value;
             index++;
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
             {
                 index = powerUps.count-1;
             }
-        }
+        }*/
         if (Input.GetKeyUp(KeyCode.Return))
         {
             CurrentPower.GetComponent<PowerUps>().Ability(index);
@@ -76,6 +76,30 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
         movementPlayer = new Vector3(inputMovement.x, 0, 0);
+    }
+    public void OnMovementAbilityRight(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            CurrentPower = powerUps.NexNode().Value;
+            index++;
+            if (index >= powerUps.count)
+            {
+                index = 0;
+            }
+        }
+    }
+    public void OnMovementAbilityLeft(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            CurrentPower = powerUps.PreviousNode().Value;
+            index--;
+            if (index <= -1)
+            {
+                index = powerUps.count - 1;
+            }
+        }
     }
     public void OnMovementFront(InputAction.CallbackContext value)
     {

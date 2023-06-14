@@ -458,6 +458,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ef4cdc3c-9146-4401-8772-289d1d40d67c
     m_ActionName: Gameplay/MovementBack[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 261890534}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMovementAbilityRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ffedec55-fbbe-4728-8d6c-f95c8f984ebd
+    m_ActionName: Gameplay/MovementAbilityRight[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 261890534}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMovementAbilityLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6a1785c3-3bea-461d-96b3-8230f7422dd5
+    m_ActionName: Gameplay/MovementAbilityLeft[/Keyboard/leftArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KeyBoard
   m_DefaultActionMap: Gameplay
@@ -475,7 +507,6 @@ GameObject:
   - component: {fileID: 369730070}
   - component: {fileID: 369730073}
   - component: {fileID: 369730069}
-  - component: {fileID: 369730068}
   - component: {fileID: 369730072}
   m_Layer: 0
   m_Name: PowerUpCrecer
@@ -484,19 +515,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &369730068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369730067}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 477da51b4f4f4fc4c9530f7fc815bd93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 261890534}
 --- !u!65 &369730069
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -618,7 +636,6 @@ GameObject:
   - component: {fileID: 462870703}
   - component: {fileID: 462870706}
   - component: {fileID: 462870702}
-  - component: {fileID: 462870701}
   - component: {fileID: 462870705}
   m_Layer: 0
   m_Name: PowerUpChico
@@ -627,19 +644,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &462870701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462870700}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c213a3010b27d54899b19f3d1a27f3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 261890534}
 --- !u!65 &462870702
 BoxCollider:
   m_ObjectHideFlags: 0
