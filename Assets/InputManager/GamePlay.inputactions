@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SelectionAbility",
+                    "type": "Button",
+                    "id": "4c225834-077b-4800-966b-ae348ba5245c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -146,6 +155,17 @@
                     "processors": "",
                     "groups": "KeyBoard",
                     "action": "MovementAbilityLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9972e098-e6ff-4522-8838-5296f72a2c4c",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard",
+                    "action": "SelectionAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

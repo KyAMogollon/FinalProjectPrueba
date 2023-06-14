@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        ChooseAbility();
     }
     private void FixedUpdate()
     {
@@ -45,31 +44,6 @@ public class PlayerController : MonoBehaviour
             {
                 _rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
             }
-        }
-    }
-    void ChooseAbility()
-    {
-        /*if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            CurrentPower=powerUps.NexNode().Value;
-            index++;
-            if (index >= powerUps.count)
-            {
-                index = 0;
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            CurrentPower = powerUps.PreviousNode().Value;
-            index--;
-            if (index <= -1)
-            {
-                index = powerUps.count-1;
-            }
-        }*/
-        if (Input.GetKeyUp(KeyCode.Return))
-        {
-            CurrentPower.GetComponent<PowerUps>().Ability(index);
         }
     }
     public void OnMovement(InputAction.CallbackContext value)
@@ -99,6 +73,13 @@ public class PlayerController : MonoBehaviour
             {
                 index = powerUps.count - 1;
             }
+        }
+    }
+    public void OnSelectionAbility(InputAction.CallbackContext value)
+    {
+        if (value.started)
+        {
+            CurrentPower.GetComponent<PowerUps>().Ability(index);
         }
     }
     public void OnMovementFront(InputAction.CallbackContext value)
