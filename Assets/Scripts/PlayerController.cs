@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     float speed;
     public float jumpForce;
+    public event Action Oncollision;
 
     DoubleCircularNode <GameObject> powerUps;
     [SerializeField] GameObject CurrentPower;
@@ -133,6 +136,7 @@ public class PlayerController : MonoBehaviour
             CurrentPower = collision.gameObject;
             powerUps.InsertNodeAtEnd(CurrentPower);
             powerUps.GetLastNode();
+            Oncollision?.Invoke();
             collision.gameObject.SetActive(false);
             saveIndex++;
             index = saveIndex;
