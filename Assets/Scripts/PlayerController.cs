@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     float speed;
     public float jumpForce;
 
-    [SerializeField] GameController gameController;
     DoubleCircularNode <GameObject> powerUps;
     [SerializeField] GameObject CurrentPower;
     [SerializeField] GameObject player;
@@ -50,6 +49,14 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
         movementPlayer = new Vector3(inputMovement.x, 0, 0);
+        if(inputMovement.x < 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = true;
+        }
+        else if(inputMovement.x > 0)
+        {
+            GetComponentInChildren<SpriteRenderer>().flipX = false;
+        }
     }
     public void OnMovementAbilityRight(InputAction.CallbackContext value)
     {
