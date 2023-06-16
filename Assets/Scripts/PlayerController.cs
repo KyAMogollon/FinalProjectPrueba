@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     float speed;
     public float jumpForce;
     public event Action<int> Oncollision;
+    public event Action<int> OnCurrentAbility;
 
     DoubleCircularNode <GameObject> powerUps;
     [SerializeField] GameObject CurrentPower;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        OnCurrentAbility?.Invoke(index);
     }
     private void FixedUpdate()
     {
