@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     float speed;
     public float jumpForce;
     public event Action<int> Oncollision;
-    public event Action<int> OnCurrentAbility;
 
     DoubleCircularNode <GameObject> powerUps;
     [SerializeField] GameObject CurrentPower;
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        OnCurrentAbility?.Invoke(index);
+        Oncollision?.Invoke(index);
     }
     private void FixedUpdate()
     {
@@ -138,7 +137,6 @@ public class PlayerController : MonoBehaviour
             CurrentPower = collision.gameObject;
             powerUps.InsertNodeAtEnd(CurrentPower);
             powerUps.GetLastNode();
-            Oncollision?.Invoke(index);
             collision.gameObject.SetActive(false);
             saveIndex++;
             index = saveIndex;

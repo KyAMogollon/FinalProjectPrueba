@@ -8,7 +8,8 @@ public class NodeController : MonoBehaviour
     private float positionX;
     private float positionY;
     private float positionZ;
-    void Start()
+    public string nodeTag;
+    void Awake()
     {
         allAdjacentNodes = new GenericList<NodeController>();
     }
@@ -18,15 +19,28 @@ public class NodeController : MonoBehaviour
     {
         
     }
-    public void SetInitialValues(float positionX, float positionY, float positionZ)
+    public void SetInitialValues(float positionX, float positionY, float positionZ, string nodeTag)
     {
         this.positionX = positionX;
         this.positionY = positionY;
         this.positionZ = positionZ;
         transform.position = new Vector3(positionX, positionY, positionZ);
+        this.nodeTag = nodeTag;
+    }
+    public NodeController SelectNexNode()
+    {
+        int nodeSelected = Random.Range(0, allAdjacentNodes.Count);
+        return allAdjacentNodes.GetNodeAtPosition(nodeSelected);
     }
     public void AddNodeAdjacent(NodeController node)
     {
         allAdjacentNodes.AddNoteAtStart(node);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag=="Enemy")
+        {
+            other.GetComponent<EnemyController>().ChangeMovePosition(SelectNexNode().gameObject.transform.position);
+        }
     }
 }

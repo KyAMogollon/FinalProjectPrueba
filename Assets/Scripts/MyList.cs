@@ -15,7 +15,7 @@ class GenericList<T>
         }
     }
     Node Head { get; set; }
-    int Count = 0;
+    public int Count = 0;
     public void AddNoteAtStart(T value)
     {
         Node newNode = new Node(value);
@@ -24,7 +24,7 @@ class GenericList<T>
             Head = newNode;
             Count = Count + 1;
         }
-        else if (Head != null)
+        else
         {
             Node tmp = Head;
             Head = newNode;
