@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject CurrentPower;
     [SerializeField] GameObject player;
     Vector3 movementPlayer;
+    public Vector3 gravity;
+    public Vector3 speedJump;
+    private void Awake()
+    {
+        Physics.gravity = gravity;
+    }
     void Start()
     {
         powerUps = new DoubleCircularNode<GameObject>();
@@ -45,11 +51,12 @@ public class PlayerController : MonoBehaviour
             isJump = true;
             if (isJump)
             {
-                _rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                //_rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                _rb.velocity = speedJump;
             }
         }
     }
-    public void OnMovement(InputAction.CallbackContext value)
+    /*public void OnMovement(InputAction.CallbackContext value)
     {
         Vector2 inputMovement = value.ReadValue<Vector2>();
         movementPlayer = new Vector3(inputMovement.x, 0, 0);
@@ -61,7 +68,7 @@ public class PlayerController : MonoBehaviour
         {
             GetComponentInChildren<SpriteRenderer>().flipX = false;
         }
-    }
+    }*/
     public void OnMovementAbilityRight(InputAction.CallbackContext value)
     {
         if (value.started)
