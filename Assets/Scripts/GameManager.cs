@@ -21,21 +21,18 @@ public class GameManager : MonoBehaviour
     {
         if (i == 1)
         {
-            m_Image[0].gameObject.SetActive(true);
             m_Image[0].color = new Color32(255, 255, 255, 255);
             m_Image[1].color = new Color32(255, 255, 255, 100);
             m_Image[2].color = new Color32(255, 255, 255, 100);
         }
         else if (i == 2)
         {
-            m_Image[1].gameObject.SetActive(true);
             m_Image[0].color = new Color32(255, 255, 255, 100);
             m_Image[1].color = new Color32(255, 255, 255, 255);
             m_Image[2].color = new Color32(255, 255, 255, 100);
         }
         else if (i == 3)
         {
-            m_Image[2].gameObject.SetActive(true);
             m_Image[0].color = new Color32(255, 255, 255, 100);
             m_Image[1].color = new Color32(255, 255, 255, 100);
             m_Image[2].color = new Color32(255, 255, 255, 255);

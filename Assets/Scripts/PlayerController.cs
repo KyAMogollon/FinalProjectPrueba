@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     DoubleCircularNode <GameObject> powerUps;
     [SerializeField] GameObject CurrentPower;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject powerUpGrande;
+    [SerializeField] GameObject powerUpChico;
+    [SerializeField] GameObject powerUpSalto;
     Vector3 movementPlayer;
     public Vector3 gravity;
     public Vector3 speedJump;
@@ -35,6 +38,11 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         powerUps.InsertNodeAtStart(player);
         CurrentPower = powerUps.GetHead().Value;
+        powerUps.InsertNodeAtEnd(powerUpGrande);
+        powerUps.InsertNodeAtEnd(powerUpChico);
+        powerUps.InsertNodeAtEnd(powerUpSalto);
+        index = 3;
+        CurrentPower = powerUps.GetLastNode().Value;
     }
     void Update()
     {
@@ -139,7 +147,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "PowerUps")
+        /*if (collision.gameObject.tag == "PowerUps")
         {
             CurrentPower = collision.gameObject;
             powerUps.InsertNodeAtEnd(CurrentPower);
@@ -148,6 +156,6 @@ public class PlayerController : MonoBehaviour
             saveIndex++;
             index = saveIndex;
             Oncollision?.Invoke(saveIndex);
-        }
+        }*/
     }
 }
