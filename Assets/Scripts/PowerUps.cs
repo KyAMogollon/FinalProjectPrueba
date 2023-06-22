@@ -17,6 +17,7 @@ public class PowerUps : MonoBehaviour
         {
             player.jumpForce = 7;
             player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            
         }
         else if (selection == 2)
         {
