@@ -17,6 +17,7 @@ public class PowerUps : MonoBehaviour
         else if (selection == 1)
         {
             //player.jumpForce = 7;
+            player.speedJump = new Vector3(0, 30, 0);
             player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             
         }
@@ -29,6 +30,7 @@ public class PowerUps : MonoBehaviour
         else if (selection == 3)
         {
             //player.jumpForce = 15;
+            player.transform.localScale = new Vector3(1, 1, 1);
             player.speedJump = new Vector3(0,40,0);
         }
     }
