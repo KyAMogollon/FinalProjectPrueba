@@ -18,10 +18,8 @@ public class ObstaculoController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if (other.gameObject.tag == "PuntoFinal")
         {
-            Debug.Log("Hola");
             Destroy(gameObject);
         }
     }
