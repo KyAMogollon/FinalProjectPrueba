@@ -10,22 +10,24 @@ public class PowerUps : MonoBehaviour
     {
         if (selection == 0)
         {
-            player.jumpForce = 7;
+            //player.jumpForce = 7;
+            player.speedJump = new Vector3(0, 30, 0);
             transform.localScale = new Vector3(1, 1, 1);
         }
         else if (selection == 1)
         {
-            player.jumpForce = 7;
+            //player.jumpForce = 7;
             player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
         else if (selection == 2)
         {
-            player.jumpForce = 7;
+            player.speedJump = new Vector3(0, 30, 0);
+            //player.jumpForce = 7;
             player.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
         else if (selection == 3)
         {
-            player.jumpForce = 15;
+            //player.jumpForce = 15;
             player.speedJump = new Vector3(0,40,0);
         }
     }
