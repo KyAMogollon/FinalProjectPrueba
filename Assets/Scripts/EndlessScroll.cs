@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class EndlessScroll : MonoBehaviour
 {
+    GenericList<GameObject> listObstaculos;
     [SerializeField] private GameObject[] partesDenivel;
     [SerializeField] Transform puntoFinal;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        listObstaculos = new GenericList<GameObject>();
+        for(int i = 0; i < partesDenivel.Length; i++)
+        {
+            listObstaculos.AddNodeAtPosition(partesDenivel[i],i);
+        }
+    }
     void Start()
     {
         GeneradorParteNivel();
@@ -19,8 +28,8 @@ public class EndlessScroll : MonoBehaviour
     }
     private void GeneradorParteNivel()
     {
-        int numeroAleatorio=Random.Range(0,partesDenivel.Length);
-        Instantiate(partesDenivel[numeroAleatorio], puntoFinal.position, Quaternion.identity);
+        int numeroAleatorio=Random.Range(0,listObstaculos.Count);
+        Instantiate(listObstaculos.GetNodeAtPosition(numeroAleatorio), puntoFinal.position, Quaternion.identity);
         //puntoFinal = BuscarPuntoFinal(nivel, "PuntoFinal");
     }
     /*private Transform BuscarPuntoFinal(GameObject parteDeNivel, string tag)
