@@ -22,7 +22,20 @@ public class GameManager : MonoBehaviour
         player.Oncollision += ActivationPowerUpsOnCanvas;
         contador=contador+1*Time.deltaTime;
         score=(int)contador;
-        puntaje.text = " " + score;
+        puntaje.text = "0000"+ score;
+        if (score > 9&&score<99)
+        {
+            puntaje.text = "000" + score;
+        }else if(score > 99 &&score<999)
+        {
+            puntaje.text = "00" + score;
+        }else if(score>999 && score < 9999)
+        {
+            puntaje.text = "0" + score;
+        }else if(score>9999)
+        {
+            puntaje.text = "" + score;
+        }
     }
     public void ActivationPowerUpsOnCanvas(int i)
     {
