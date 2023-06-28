@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
         {
             if (value.started && isOtherSide == true)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 3);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1.5f);
                 isOtherSide = false;
             }
         }
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             if (value.started && isOtherSide == false)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
                 isOtherSide = true;
             }
         }
