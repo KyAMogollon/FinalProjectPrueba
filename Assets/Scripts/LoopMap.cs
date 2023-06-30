@@ -20,11 +20,11 @@ public class LoopMap : MonoBehaviour
         Playa1.transform.position = new Vector3(Playa1.transform.position.x - speed*Time.deltaTime, Playa1.transform.position.y, Playa1.transform.position.z);
         if (Playa.transform.position.x <= -230)
         {
-            Playa.transform.position = new Vector3(90.5f, Playa.transform.position.y, Playa.transform.position.z);
+            Playa.transform.position = new Vector3(97f, Playa.transform.position.y, Playa.transform.position.z);
         }
         if (Playa1.transform.position.x <= -230)
         {
-            Playa1.transform.position = new Vector3(90.5f, Playa1.transform.position.y, Playa1.transform.position.z);
+            Playa1.transform.position = new Vector3(97f, Playa1.transform.position.y, Playa1.transform.position.z);
         }
     }
 }
