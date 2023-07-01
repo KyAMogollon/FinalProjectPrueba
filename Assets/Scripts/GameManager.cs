@@ -4,13 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Image [] m_Image;
     [SerializeField] PlayerController player;
     [SerializeField] TMP_Text puntaje;
+    [SerializeField] Canvas pause;
+    [SerializeField] Canvas regresivo;
+    [SerializeField] TMP_Text conteoregresivo;
     float contador = 0;
     int score=0;
+    bool menupause=true;
+    int contadorRegresivo = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +42,41 @@ public class GameManager : MonoBehaviour
         {
             puntaje.text = "" + score;
         }
+    }
+    public void MenuPause(InputAction.CallbackContext value)
+    {
+        if(value.started && menupause == true)
+        {
+            pause.gameObject.SetActive(true);
+            menupause = false;
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+        }else if(value.started && menupause == false)
+        {
+            StartCoroutine(TimeToReady());
+        }
+    }
+    IEnumerator TimeToReady()
+    {
+        pause.gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        regresivo.gameObject.SetActive(true);
+
+        contadorRegresivo = contadorRegresivo - 1;
+        conteoregresivo.text = " " + contadorRegresivo;
+        yield return new WaitForSecondsRealtime(1f);
+
+        contadorRegresivo = contadorRegresivo - 1;
+        conteoregresivo.text = " " + contadorRegresivo;
+        yield return new WaitForSecondsRealtime(1f);
+
+        contadorRegresivo = contadorRegresivo - 1;
+        conteoregresivo.text = " " + contadorRegresivo;
+        yield return new WaitForSecondsRealtime(1f);
+
+        menupause = true;
+        regresivo.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
     public void ActivationPowerUpsOnCanvas(int i)
     {
