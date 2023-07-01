@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     int score=0;
     bool menupause=true;
     int contadorRegresivo = 4;
+    [SerializeField] SoundSelecion selectionSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
             puntaje.text = "" + score;
         }
     }
+    public void ButtonReturn()
+    {
+        menuOptions.gameObject.SetActive(false);
+        pause.gameObject.SetActive(true);
+    }
     public void ButtonOptions()
     {
         menuOptions.gameObject.SetActive(true);
@@ -59,13 +65,13 @@ public class GameManager : MonoBehaviour
     }
     public void ResetScene()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(TimeToReset());
     }
     public void MenuPause(InputAction.CallbackContext value)
     {
         if(value.started && menupause == true)
         {
+            selectionSound.StartSoundSelection();
             pause.gameObject.SetActive(true);
             menupause = false;
             Time.timeScale = 0;
@@ -74,6 +80,12 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(TimeToReady());
         }*/
+    }
+    IEnumerator TimeToReset()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     IEnumerator TimeToReady()
     {
