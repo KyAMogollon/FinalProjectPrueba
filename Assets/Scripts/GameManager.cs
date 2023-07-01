@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Image [] m_Image;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas pause;
     [SerializeField] Canvas regresivo;
     [SerializeField] TMP_Text conteoregresivo;
+    [SerializeField] Canvas menuOptions;
     float contador = 0;
     int score=0;
     bool menupause=true;
@@ -43,6 +45,23 @@ public class GameManager : MonoBehaviour
             puntaje.text = "" + score;
         }
     }
+    public void ButtonOptions()
+    {
+        menuOptions.gameObject.SetActive(true);
+        pause.gameObject.SetActive(false);
+    }
+    public void ButtomResume()
+    {
+        if (menupause == false)
+        {
+            StartCoroutine(TimeToReady());
+        }
+    }
+    public void ResetScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void MenuPause(InputAction.CallbackContext value)
     {
         if(value.started && menupause == true)
@@ -51,10 +70,10 @@ public class GameManager : MonoBehaviour
             menupause = false;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
-        }else if(value.started && menupause == false)
+        }/*else if(value.started && menupause == false)
         {
             StartCoroutine(TimeToReady());
-        }
+        }*/
     }
     IEnumerator TimeToReady()
     {
