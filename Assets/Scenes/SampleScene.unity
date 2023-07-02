@@ -5609,13 +5609,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1647197538}
   m_HandleRect: {fileID: 1438817385}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9531142ca96a6274e8d7d1a1df323591, type: 2}
+        m_TargetAssemblyTypeName: SoundsSO, Assembly-CSharp
+        m_MethodName: UpdateVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1682154246}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1721301448
 GameObject:
   m_ObjectHideFlags: 0
@@ -5839,13 +5851,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 394613141}
   m_HandleRect: {fileID: 1961767329}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 06c42070a8f77434b8eb4e515002972a, type: 2}
+        m_TargetAssemblyTypeName: SoundsSO, Assembly-CSharp
+        m_MethodName: UpdateVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1760983317}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1771818938
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,13 +6518,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 828896653}
   m_HandleRect: {fileID: 1997889497}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: fb7b7237c0a075e4fa78cf9289c61a6b, type: 2}
+        m_TargetAssemblyTypeName: SoundsSO, Assembly-CSharp
+        m_MethodName: UpdateVolume
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1900817880}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1961767328
 GameObject:
   m_ObjectHideFlags: 0

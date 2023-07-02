@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator TimeToReady()
     {
+        contadorRegresivo = 4;
         pause.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         regresivo.gameObject.SetActive(true);
