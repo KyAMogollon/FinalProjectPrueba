@@ -48,13 +48,12 @@ public class GameManager : MonoBehaviour
     }
     public void ButtonReturn()
     {
-        menuOptions.gameObject.SetActive(false);
-        pause.gameObject.SetActive(true);
+        StartCoroutine(TimeToReturn());
     }
-    public void ButtonOptions()
+    IEnumerator TimeToReturn()
     {
-        menuOptions.gameObject.SetActive(true);
-        pause.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(1f);
+        SceneManager.LoadScene(0);
     }
     public void ButtomResume()
     {
