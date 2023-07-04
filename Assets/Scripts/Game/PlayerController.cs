@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject powerUpGrande;
     [SerializeField] GameObject powerUpChico;
     [SerializeField] GameObject powerUpSalto;
+    [SerializeField] GameManager gameManager;
     Vector3 movementPlayer;
     public Vector3 gravity;
     public Vector3 speedJump;
@@ -160,6 +161,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             Time.timeScale = 0;
+            gameManager.GameOverMethod();
         }
         if (transform.localScale.x == 1.5f)
         {

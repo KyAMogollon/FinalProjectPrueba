@@ -12,13 +12,13 @@ public class Graph : MonoBehaviour
     void Awake()
     {
         allNodes = new GenericList<NodeController>();
-    }
-    void Start()
-    {
         InsertNode(3, -0.84f, -6.67f, "0");
         InsertNode(3, 4.48f, 5.41f, "1");
         InsertNode(3, 5.9f, -3.13f, "2");
         InsertNode(3, -2f, 4.65f, "3");
+    }
+    void Start()
+    {
 
         AddNodeAdjacent("0",new string [] {"1","2","3"});
         AddNodeAdjacent("1", new string[] { "2","3","0" });
@@ -27,7 +27,6 @@ public class Graph : MonoBehaviour
 
         currentNode = allNodes.GetNodeAtPosition(3).gameObject;
         enemy.ChangeMovePosition(currentNode.gameObject.transform.position);
-
     }
 
     // Update is called once per frame
@@ -36,7 +35,7 @@ public class Graph : MonoBehaviour
     }
     void InsertNode(float positionX, float positionY, float positionZ, string nodeTag)
     {
-        currentNode=Instantiate(nodePrefab, transform.position, transform.rotation, gameObject.transform);
+        currentNode=Instantiate(nodePrefab, transform.position, transform.rotation,transform);
         currentNode.GetComponent<NodeController>().SetInitialValues(positionX, positionY, positionZ,nodeTag);
         allNodes.AddNoteAtStart(currentNode.GetComponent<NodeController>());
     }

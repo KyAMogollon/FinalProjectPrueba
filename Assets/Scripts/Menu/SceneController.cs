@@ -8,6 +8,7 @@ public class SceneController : MonoBehaviour
     public void Play()
     {
         StartCoroutine(TimeToPlay());
+        Time.timeScale = 1;
     }
     IEnumerator TimeToPlay()
     {

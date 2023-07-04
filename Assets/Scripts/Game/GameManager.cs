@@ -15,16 +15,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas regresivo;
     [SerializeField] TMP_Text conteoregresivo;
     [SerializeField] Canvas menuOptions;
+    [SerializeField] Canvas GameOver;
     float contador = 0;
     int score=0;
     bool menupause=true;
     int contadorRegresivo = 4;
     [SerializeField] SoundSelecion selectionSound;
+    [SerializeField] PuntajeSO SOscore;
+    [SerializeField] TMP_Text puntajeCanvas;
     // Start is called before the first frame update
     void Start()
     {
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +48,12 @@ public class GameManager : MonoBehaviour
         {
             puntaje.text = "" + score;
         }
+        SOscore.RegisterNewScore(score, puntajeCanvas);
+    }
+    public void GameOverMethod()
+    {
+        GameOver.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
     public void ButtonLeave(){
         Application.Quit();
