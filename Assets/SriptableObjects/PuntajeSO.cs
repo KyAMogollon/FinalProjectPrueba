@@ -5,7 +5,8 @@ using TMPro;
 [CreateAssetMenu(fileName = "PuntajeSO", menuName = "ScriptableObjects/PuntajeSO", order = 2)]
 public class PuntajeSO : ScriptableObject
 {
-    [SerializeField] private int [] maxScore;
+    [SerializeField] public int [] maxScore;
+    int k = 0;
     public void OnEnable()
     {
         if(maxScore == null)
@@ -15,43 +16,40 @@ public class PuntajeSO : ScriptableObject
     }
     public void RegistryNewScore(int newScore)
     {
-        bool isChanged = false;
-        int[] newMaxScore = new int[10];
-        for (int i = 0; i < 10; i++)
+        if (k < 10)
         {
-            int savePrevious = maxScore[i];
-            if (newScore > maxScore[i] && !isChanged)
+            maxScore[k]=newScore;
+            k++;
+        }else
+        {
+            if(newScore > maxScore[0])
             {
-                newMaxScore[i] = newScore;
-                i++;
-                isChanged = true;
+                maxScore[0] = newScore;
             }
-            newMaxScore[i] = savePrevious;
         }
-        maxScore = newMaxScore;
-        BurbleSortOrden(maxScore);
+        BurbleSortOrden();
     }
-    public void BurbleSortOrden(int [] maxScore)
+    public void BurbleSortOrden()
     {
         int tmp;
-        for (int i = 0; i < maxScore.Length; i++)
+        bool isSorted;
+        for (int i = 0; i < maxScore.Length - 1; i++)
         {
+            isSorted = true;
             for (int j = 0; j < maxScore.Length - i - 1; j++)
             {
-                if (maxScore[j] > maxScore[i+1])
+                if (maxScore[j] > maxScore[j+1])
                 {
                     tmp = maxScore[j];
                     maxScore[j] = maxScore[j + 1];
                     maxScore[j + 1] = tmp;
+                    isSorted = false;
                 }
             }
-        }
-    }
-    public void Print(TMP_Text [] puntajeCanvas)
-    {
-        for (int i = 0; i < maxScore.Length; i++)
-        {
-            puntajeCanvas[i].text = "Score: " + maxScore[i];
+            if (isSorted)
+            {
+                break;
+            }
         }
     }
 }

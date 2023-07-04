@@ -55,15 +55,10 @@ public class GameManager : MonoBehaviour
         GameOver.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         SOscore.RegistryNewScore(score);
-        for (int i = 0; i < arrayNumbers.Length; i++)
+        for(int i = SOscore.maxScore.Length-1; i >= 0; i--)
         {
-            if (arrayNumbers[i] == 0)
-            {
-                arrayNumbers[i] =0;
-            }
+            puntajeCanvas[i].text="Score: " + SOscore.maxScore[i];
         }
-        //SOscore.BurbleSortOrden(score);
-        SOscore.Print(puntajeCanvas);
     }
     public void ButtonLeave(){
         Application.Quit();

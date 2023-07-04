@@ -2660,16 +2660,16 @@ MonoBehaviour:
   selectionSound: {fileID: 11400000, guid: 825408b433e9994428111204ad54e7ef, type: 2}
   SOscore: {fileID: 11400000, guid: b86408202278549488e86bf752690deb, type: 2}
   puntajeCanvas:
-  - {fileID: 907584067}
-  - {fileID: 869402453}
-  - {fileID: 1855060380}
-  - {fileID: 1036490668}
-  - {fileID: 2066734102}
-  - {fileID: 1937104248}
-  - {fileID: 1634098294}
-  - {fileID: 423355059}
-  - {fileID: 1324930387}
   - {fileID: 383814708}
+  - {fileID: 1324930387}
+  - {fileID: 423355059}
+  - {fileID: 1634098294}
+  - {fileID: 1937104248}
+  - {fileID: 2066734102}
+  - {fileID: 1036490668}
+  - {fileID: 1855060380}
+  - {fileID: 869402453}
+  - {fileID: 907584067}
 --- !u!4 &461839773
 Transform:
   m_ObjectHideFlags: 0
@@ -3443,9 +3443,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5352887243004341693, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 93471175075726314, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.38
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
       propertyPath: m_Name
       value: Playa1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958790940567923107, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737835246130461623, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908444710333159663, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.62
       objectReference: {fileID: 0}
     - target: {fileID: 5888346050269629562, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
       propertyPath: m_IsActive
@@ -4532,6 +4552,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5352887243004341693, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.61
+      objectReference: {fileID: 0}
     - target: {fileID: -4593130486874181694, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4540,9 +4564,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 93471175075726314, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.5
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
       propertyPath: m_Name
       value: Playa
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958790940567923107, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737835246130461623, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908444710333159663, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -142.4
       objectReference: {fileID: 0}
     - target: {fileID: 5888346050269629562, guid: 32a8076be4b579146808b96059f1f26d, type: 3}
       propertyPath: m_IsActive
@@ -7086,7 +7126,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &1527259108
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7103,8 +7143,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1527259109
 MonoBehaviour:
   m_ObjectHideFlags: 0
