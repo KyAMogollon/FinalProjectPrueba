@@ -157,6 +157,10 @@ public class PlayerController : MonoBehaviour
             index = saveIndex;
             Oncollision?.Invoke(saveIndex);
         }*/
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Time.timeScale = 0;
+        }
         if (transform.localScale.x == 1.5f)
         {
             if (collision.gameObject.tag == "Muro")
