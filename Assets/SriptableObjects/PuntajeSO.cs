@@ -13,7 +13,7 @@ public class PuntajeSO : ScriptableObject
             maxScore = new int[10];
         }
     }
-    public void RegisterNewScore(int newScore, TMP_Text puntaje)
+    public void RegistryNewScore(int newScore)
     {
         bool isChanged = false;
         int[] newMaxScore = new int[10];
@@ -29,6 +29,29 @@ public class PuntajeSO : ScriptableObject
             newMaxScore[i] = savePrevious;
         }
         maxScore = newMaxScore;
-        puntaje.text= "Score: " + maxScore[0];
+        BurbleSortOrden(maxScore);
+    }
+    public void BurbleSortOrden(int [] maxScore)
+    {
+        int tmp;
+        for (int i = 0; i < maxScore.Length; i++)
+        {
+            for (int j = 0; j < maxScore.Length - i - 1; j++)
+            {
+                if (maxScore[j] > maxScore[i+1])
+                {
+                    tmp = maxScore[j];
+                    maxScore[j] = maxScore[j + 1];
+                    maxScore[j + 1] = tmp;
+                }
+            }
+        }
+    }
+    public void Print(TMP_Text [] puntajeCanvas)
+    {
+        for (int i = 0; i < maxScore.Length; i++)
+        {
+            puntajeCanvas[i].text = "Score: " + maxScore[i];
+        }
     }
 }

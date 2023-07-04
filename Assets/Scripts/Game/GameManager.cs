@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] TMP_Text puntaje;
     [SerializeField] Canvas pause;
-    [SerializeField] Canvas regresivo;
+    [SerializeField] GameObject regresivo;
     [SerializeField] TMP_Text conteoregresivo;
     [SerializeField] Canvas menuOptions;
     [SerializeField] Canvas GameOver;
@@ -22,11 +22,12 @@ public class GameManager : MonoBehaviour
     int contadorRegresivo = 4;
     [SerializeField] SoundSelecion selectionSound;
     [SerializeField] PuntajeSO SOscore;
-    [SerializeField] TMP_Text puntajeCanvas;
+    [SerializeField] TMP_Text [] puntajeCanvas;
+    int[] arrayNumbers;
     // Start is called before the first frame update
     void Start()
     {
-
+        arrayNumbers = new int[10];
     }
     // Update is called once per frame
     void Update()
@@ -48,12 +49,21 @@ public class GameManager : MonoBehaviour
         {
             puntaje.text = "" + score;
         }
-        SOscore.RegisterNewScore(score, puntajeCanvas);
     }
     public void GameOverMethod()
     {
         GameOver.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
+        SOscore.RegistryNewScore(score);
+        for (int i = 0; i < arrayNumbers.Length; i++)
+        {
+            if (arrayNumbers[i] == 0)
+            {
+                arrayNumbers[i] =0;
+            }
+        }
+        //SOscore.BurbleSortOrden(score);
+        SOscore.Print(puntajeCanvas);
     }
     public void ButtonLeave(){
         Application.Quit();
@@ -106,15 +116,15 @@ public class GameManager : MonoBehaviour
         regresivo.gameObject.SetActive(true);
 
         contadorRegresivo = contadorRegresivo - 1;
-        conteoregresivo.text = " " + contadorRegresivo;
+        conteoregresivo.text = contadorRegresivo.ToString();
         yield return new WaitForSecondsRealtime(1f);
 
         contadorRegresivo = contadorRegresivo - 1;
-        conteoregresivo.text = " " + contadorRegresivo;
+        conteoregresivo.text = contadorRegresivo.ToString();
         yield return new WaitForSecondsRealtime(1f);
 
         contadorRegresivo = contadorRegresivo - 1;
-        conteoregresivo.text = " " + contadorRegresivo;
+        conteoregresivo.text = contadorRegresivo.ToString();
         yield return new WaitForSecondsRealtime(1f);
 
         menupause = true;
