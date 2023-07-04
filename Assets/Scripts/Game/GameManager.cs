@@ -17,37 +17,66 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas menuOptions;
     [SerializeField] Canvas GameOver;
     float contador = 0;
-    int score=0;
+    public int score=0;
     bool menupause=true;
     int contadorRegresivo = 4;
     [SerializeField] SoundSelecion selectionSound;
     [SerializeField] PuntajeSO SOscore;
     [SerializeField] TMP_Text [] puntajeCanvas;
-    int[] arrayNumbers;
+    [SerializeField] LoopMap speedLoopMap;
+    [SerializeField] ObstaculoController [] obstaculos;
     // Start is called before the first frame update
     void Start()
     {
-        arrayNumbers = new int[10];
     }
     // Update is called once per frame
     void Update()
     {
         player.Oncollision += ActivationPowerUpsOnCanvas;
-        contador=contador+1*Time.deltaTime;
-        score=(int)contador;
-        puntaje.text = "0000"+ score;
-        if (score > 9&&score<99)
+        Score();
+        CheckQuantityOfScore();
+    }
+    public void CheckQuantityOfScore()
+    {
+
+        if(score >= 60&&score<120)
+        {
+            speedLoopMap.speed = 20;
+            for(int i = 0; i < obstaculos.Length; i++)
+            {
+                obstaculos[i].speed = 20;
+            }
+        }
+        else if (score >= 120)
+        {
+            speedLoopMap.speed = 25;
+            for (int i = 0; i < obstaculos.Length; i++)
+            {
+                obstaculos[i].speed = 25;
+            }
+        }
+
+    }
+    public void Score()
+    {
+        contador = contador + 1 * Time.deltaTime;
+        score = (int)contador;
+        puntaje.text = "0000" + score;
+        if (score > 9 && score < 99)
         {
             puntaje.text = "000" + score;
-        }else if(score > 99 &&score<999)
+        }
+        else if (score > 99 && score < 999)
         {
             puntaje.text = "00" + score;
-        }else if(score>999 && score < 9999)
+        }
+        else if (score > 999 && score < 9999)
         {
             puntaje.text = "0" + score;
-        }else if(score>9999)
+        }
+        else if (score > 9999)
         {
-            puntaje.text = "" + score;
+            puntaje.text = score.ToString();
         }
     }
     public void GameOverMethod()
@@ -110,17 +139,12 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         regresivo.gameObject.SetActive(true);
 
-        contadorRegresivo = contadorRegresivo - 1;
-        conteoregresivo.text = contadorRegresivo.ToString();
-        yield return new WaitForSecondsRealtime(1f);
-
-        contadorRegresivo = contadorRegresivo - 1;
-        conteoregresivo.text = contadorRegresivo.ToString();
-        yield return new WaitForSecondsRealtime(1f);
-
-        contadorRegresivo = contadorRegresivo - 1;
-        conteoregresivo.text = contadorRegresivo.ToString();
-        yield return new WaitForSecondsRealtime(1f);
+        while (contadorRegresivo > 1)
+        {
+            contadorRegresivo = contadorRegresivo - 1;
+            conteoregresivo.text = contadorRegresivo.ToString();
+            yield return new WaitForSecondsRealtime(1f);
+        }
 
         menupause = true;
         regresivo.gameObject.SetActive(false);

@@ -2657,6 +2657,7 @@ MonoBehaviour:
   conteoregresivo: {fileID: 394091903}
   menuOptions: {fileID: 1111145470}
   GameOver: {fileID: 419981424}
+  score: 0
   selectionSound: {fileID: 11400000, guid: 825408b433e9994428111204ad54e7ef, type: 2}
   SOscore: {fileID: 11400000, guid: b86408202278549488e86bf752690deb, type: 2}
   puntajeCanvas:
@@ -2670,6 +2671,12 @@ MonoBehaviour:
   - {fileID: 1855060380}
   - {fileID: 869402453}
   - {fileID: 907584067}
+  speedLoopMap: {fileID: 971714862}
+  obstaculos:
+  - {fileID: -6931425028028354630, guid: 71558943f85694e469200f2215235445, type: 3}
+  - {fileID: 1688248123366777079, guid: 1c5d3babb303030459793a7b395a7743, type: 3}
+  - {fileID: 4308497586619422893, guid: ad4c7599e19b8fc4d8959e20e8fefa0d, type: 3}
+  - {fileID: 46221989058078008, guid: 920a5e345372e614eaeef168451f97f9, type: 3}
 --- !u!4 &461839773
 Transform:
   m_ObjectHideFlags: 0
@@ -5235,6 +5242,7 @@ MonoBehaviour:
   - {fileID: 5251243565982958238, guid: ad4c7599e19b8fc4d8959e20e8fefa0d, type: 3}
   - {fileID: 8542413887247341945, guid: 920a5e345372e614eaeef168451f97f9, type: 3}
   puntoFinal: {fileID: 368009194}
+  timeToRespawn: 3
 --- !u!4 &993926025
 Transform:
   m_ObjectHideFlags: 0
@@ -7608,6 +7616,7 @@ MonoBehaviour:
   - {fileID: 5251243565982958238, guid: ad4c7599e19b8fc4d8959e20e8fefa0d, type: 3}
   - {fileID: 8542413887247341945, guid: 920a5e345372e614eaeef168451f97f9, type: 3}
   puntoFinal: {fileID: 1519450507}
+  timeToRespawn: 3
 --- !u!4 &1663221974
 Transform:
   m_ObjectHideFlags: 0

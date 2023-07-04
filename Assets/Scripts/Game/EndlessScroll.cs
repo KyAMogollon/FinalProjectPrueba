@@ -7,6 +7,7 @@ public class EndlessScroll : MonoBehaviour
     GenericList<GameObject> listObstaculos;
     [SerializeField] private GameObject[] partesDenivel;
     [SerializeField] Transform puntoFinal;
+    public float timeToRespawn = 3f;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class EndlessScroll : MonoBehaviour
     void Start()
     {
         GeneradorParteNivel();
-        InvokeRepeating("GeneradorParteNivel",3f,3f);
+        InvokeRepeating("GeneradorParteNivel", timeToRespawn, timeToRespawn);
     }
 
     // Update is called once per frame
