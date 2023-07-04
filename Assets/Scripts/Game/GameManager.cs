@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
             puntaje.text = "" + score;
         }
     }
+    public void ButtonLeave(){
+        Application.Quit();
+    }
     public void ButtonReturn()
     {
         StartCoroutine(TimeToReturn());

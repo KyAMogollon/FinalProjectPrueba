@@ -19,7 +19,7 @@ public class EndlessScroll : MonoBehaviour
     void Start()
     {
         GeneradorParteNivel();
-        InvokeRepeating("GeneradorParteNivel",1.5f,1.5f);
+        InvokeRepeating("GeneradorParteNivel",3f,3f);
     }
 
     // Update is called once per frame
