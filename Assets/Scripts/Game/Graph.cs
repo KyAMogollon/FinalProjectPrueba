@@ -7,15 +7,15 @@ public class Graph : MonoBehaviour
     [SerializeField] GameObject nodePrefab;
     private GameObject currentNode;
     GenericList<NodeController> allNodes;
-    [SerializeField] EnemyController enemy;
+    [SerializeField] EnemyController light;
     // Start is called before the first frame update
     void Awake()
     {
         allNodes = new GenericList<NodeController>();
-        InsertNode(3, -0.84f, -6.67f, "0");
-        InsertNode(3, 4.48f, 5.41f, "1");
-        InsertNode(3, 5.9f, -3.13f, "2");
-        InsertNode(3, -2f, 4.65f, "3");
+        InsertNode(-45, 97.3f, 115.9f, "0");
+        InsertNode(-15.6f, 94.2f, 128.7f, "1");
+        InsertNode(6.3f, 92.7f, 139.3f, "2");
+        InsertNode(34.1f, 85.9f, 146, "3");
     }
     void Start()
     {
@@ -26,7 +26,7 @@ public class Graph : MonoBehaviour
         AddNodeAdjacent("3", new string[] { "0","1","2" });
 
         currentNode = allNodes.GetNodeAtPosition(3).gameObject;
-        enemy.ChangeMovePosition(currentNode.gameObject.transform.position);
+        light.ChangeMovePosition(currentNode.gameObject.transform.position);
     }
 
     // Update is called once per frame
