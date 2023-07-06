@@ -12,18 +12,18 @@ public class Graph : MonoBehaviour
     void Awake()
     {
         allNodes = new GenericList<NodeController>();
-        InsertNode(-45, 97.3f, 115.9f, "0");
-        InsertNode(-15.6f, 94.2f, 128.7f, "1");
-        InsertNode(6.3f, 92.7f, 139.3f, "2");
-        InsertNode(34.1f, 85.9f, 146, "3");
+        InsertNode(74.6f, 141.4f, 102.7f, "0");
+        InsertNode(136.9f, 141.4f, 109.1f, "1");
+        InsertNode(34.1f, 85.9f, 146, "2");
+        InsertNode(193.8f, 141.4f, 119.1f, "3");
     }
     void Start()
     {
 
-        AddNodeAdjacent("0",new string [] {"1","2","3"});
-        AddNodeAdjacent("1", new string[] { "2","3","0" });
-        AddNodeAdjacent("2", new string[] { "3","0","1" });
-        AddNodeAdjacent("3", new string[] { "0","1","2" });
+        AddNodeAdjacent("0",new string [] {"1"});
+        AddNodeAdjacent("1", new string[] { "2" });
+        AddNodeAdjacent("2", new string[] { "3" });
+        AddNodeAdjacent("3", new string[] {"0"});
 
         currentNode = allNodes.GetNodeAtPosition(3).gameObject;
         light.ChangeMovePosition(currentNode.gameObject.transform.position);

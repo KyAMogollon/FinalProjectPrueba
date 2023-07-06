@@ -29,7 +29,7 @@ public class NodeController : MonoBehaviour
     }
     public NodeController SelectNexNode()
     {
-        int nodeSelected = Random.Range(0, allAdjacentNodes.Count);
+        int nodeSelected=Random.Range(0, allAdjacentNodes.Count);
         return allAdjacentNodes.GetNodeAtPosition(nodeSelected);
     }
     public void AddNodeAdjacent(NodeController node)
