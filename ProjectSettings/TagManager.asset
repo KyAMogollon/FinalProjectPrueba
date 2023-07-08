@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PuntoFinal
   - Muro
+  - Wave
   layers:
   - Default
   - TransparentFX

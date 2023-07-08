@@ -28,12 +28,16 @@ public class PlayerController : MonoBehaviour
     Vector3 movementPlayer;
     public Vector3 gravity;
     public Vector3 speedJump;
+    private float timeToReset = 0;
+    private float timeToReturnPosition = 10;
+    private float savePosition;
     private void Awake()
     {
         Physics.gravity = gravity;
     }
     void Start()
     {
+        savePosition =transform.position.x;
         powerUps = new DoubleCircularNode<GameObject>();
         _rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -48,6 +52,15 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Oncollision?.Invoke(index);
+        timeToReset += Time.deltaTime;
+        if (timeToReset >= timeToReturnPosition)
+        {
+            timeToReset = 0;
+            if (transform.position.x <= savePosition) 
+            {
+                transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -107,6 +120,7 @@ public class PlayerController : MonoBehaviour
         if (value.started)
         {
             CurrentPower.GetComponent<PowerUps>().Ability(index);
+            transform.position = new Vector3(transform.position.x-1, transform.position.y, transform.position.z);
         }
     }
     public void OnMovementFront(InputAction.CallbackContext value)
@@ -158,17 +172,10 @@ public class PlayerController : MonoBehaviour
             index = saveIndex;
             Oncollision?.Invoke(saveIndex);
         }*/
-        /*if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Wave")
         {
             Time.timeScale = 0;
             gameManager.GameOverMethod();
-        }*/
-        if (transform.localScale.x == 1.5f)
-        {
-            if (collision.gameObject.tag == "Muro")
-            {
-                Destroy(collision.gameObject);
-            }
         }
     }
 }
