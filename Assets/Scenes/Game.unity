@@ -2737,10 +2737,13 @@ MonoBehaviour:
   - {fileID: 907584067}
   speedLoopMap: {fileID: 971714862}
   obstaculos:
-  - {fileID: -6931425028028354630, guid: 71558943f85694e469200f2215235445, type: 3}
-  - {fileID: 1688248123366777079, guid: 1c5d3babb303030459793a7b395a7743, type: 3}
+  - {fileID: 1621397732480008093, guid: 71558943f85694e469200f2215235445, type: 3}
+  - {fileID: 6590163392846727588, guid: 1c5d3babb303030459793a7b395a7743, type: 3}
   - {fileID: 4308497586619422893, guid: ad4c7599e19b8fc4d8959e20e8fefa0d, type: 3}
-  - {fileID: 46221989058078008, guid: 920a5e345372e614eaeef168451f97f9, type: 3}
+  generatorOfLevels:
+  - {fileID: 993926024}
+  - {fileID: 1663221973}
+  cm2: {fileID: 2061268846}
 --- !u!4 &461839773
 Transform:
   m_ObjectHideFlags: 0
@@ -4790,7 +4793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &958730276
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5312,7 +5315,6 @@ MonoBehaviour:
   obstaculo1: {fileID: 9164733588407909740, guid: 71558943f85694e469200f2215235445, type: 3}
   obstaculo2: {fileID: 5293119720743676098, guid: 1c5d3babb303030459793a7b395a7743, type: 3}
   obstaculo3: {fileID: 5251243565982958238, guid: ad4c7599e19b8fc4d8959e20e8fefa0d, type: 3}
-  obstaculo4: {fileID: 8542413887247341945, guid: 920a5e345372e614eaeef168451f97f9, type: 3}
   timeToRespawn: 3
 --- !u!4 &993926025
 Transform:
@@ -7362,7 +7364,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &1527259108
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7379,8 +7381,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1527259109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7833,7 +7834,6 @@ MonoBehaviour:
   obstaculo1: {fileID: 9164733588407909740, guid: 71558943f85694e469200f2215235445, type: 3}
   obstaculo2: {fileID: 5293119720743676098, guid: 1c5d3babb303030459793a7b395a7743, type: 3}
   obstaculo3: {fileID: 5251243565982958238, guid: ad4c7599e19b8fc4d8959e20e8fefa0d, type: 3}
-  obstaculo4: {fileID: 8542413887247341945, guid: 920a5e345372e614eaeef168451f97f9, type: 3}
   timeToRespawn: 3
 --- !u!4 &1663221974
 Transform:
@@ -8395,7 +8395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodePrefab: {fileID: 2506243224646552053, guid: 5d1c1560fc93ce34eafb1277bfde9b1d, type: 3}
-  light: {fileID: 705507996}
+  objectlight: {fileID: 705507996}
 --- !u!4 &1808752281
 Transform:
   m_ObjectHideFlags: 0
@@ -9596,9 +9596,9 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 15
     NearClipPlane: 0.3
-    FarClipPlane: 50
+    FarClipPlane: 252.41
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -9619,15 +9619,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061268845}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.75, y: 1.7, z: -12.99}
+  m_LocalRotation: {x: 0.091404766, y: 0.514032, z: -0.044788286, w: 0.8517102}
+  m_LocalPosition: {x: -58, y: 47.8, z: 11.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1230243677}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 11.639, y: 62.33, z: 1.034}
 --- !u!1 &2066734100
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,8 +9,9 @@ public class EndlessScroll : MonoBehaviour
     [SerializeField] GameObject obstaculo1;
     [SerializeField] GameObject obstaculo2;
     [SerializeField] GameObject obstaculo3;
-    [SerializeField] GameObject obstaculo4;
+    //[SerializeField] GameObject obstaculo4;
     public float timeToRespawn = 3f;
+    private float enemyToRespawn=0;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -18,17 +19,23 @@ public class EndlessScroll : MonoBehaviour
         listObstaculos.AddNoteAtStart(obstaculo1);
         listObstaculos.AddNoteAtStart(obstaculo2);
         listObstaculos.AddNoteAtStart(obstaculo3);
-        listObstaculos.AddNoteAtStart(obstaculo4);
+        //listObstaculos.AddNoteAtStart(obstaculo4);
     }
     void Start()
     {
         GeneradorParteNivel();
-        InvokeRepeating("GeneradorParteNivel", timeToRespawn, timeToRespawn);
+        //InvokeRepeating("GeneradorParteNivel", timeToRespawn, timeToRespawn);
     }
 
     // Update is called once per frame
     void Update()
     {
+        enemyToRespawn +=Time.deltaTime;
+        if (enemyToRespawn >= timeToRespawn)
+        {
+            enemyToRespawn = 0;
+            GeneradorParteNivel();
+        }
     }
     private void GeneradorParteNivel()
     {

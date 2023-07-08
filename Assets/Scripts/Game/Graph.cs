@@ -7,7 +7,7 @@ public class Graph : MonoBehaviour
     [SerializeField] GameObject nodePrefab;
     private GameObject currentNode;
     GenericList<NodeController> allNodes;
-    [SerializeField] EnemyController light;
+    [SerializeField] EnemyController objectlight;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,7 +26,7 @@ public class Graph : MonoBehaviour
         AddNodeAdjacent("3", new string[] {"0"});
 
         currentNode = allNodes.GetNodeAtPosition(3).gameObject;
-        light.ChangeMovePosition(currentNode.gameObject.transform.position);
+        objectlight.ChangeMovePosition(currentNode.gameObject.transform.position);
     }
 
     // Update is called once per frame

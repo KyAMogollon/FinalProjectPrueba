@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ObstaculoController : MonoBehaviour
 {
-    public int speed=10;
+    public int speed=15;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame

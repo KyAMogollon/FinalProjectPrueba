@@ -6,6 +6,8 @@ using UnityEngine.Events;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System;
+using Cinemachine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Image [] m_Image;
@@ -23,8 +25,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] SoundSelecion selectionSound;
     [SerializeField] PuntajeSO SOscore;
     [SerializeField] TMP_Text [] puntajeCanvas;
+    [Header("Dificultad")] 
     [SerializeField] LoopMap speedLoopMap;
     [SerializeField] ObstaculoController [] obstaculos;
+    [SerializeField] EndlessScroll[] generatorOfLevels;
+    [SerializeField] CinemachineVirtualCamera cm2;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,23 +43,38 @@ public class GameManager : MonoBehaviour
     }
     public void CheckQuantityOfScore()
     {
-
-        if(score >= 60&&score<120)
+        /*if(score > 60 && score < 100)
         {
             speedLoopMap.speed = 20;
-            for(int i = 0; i < obstaculos.Length; i++)
+            for (int i = 0; i < obstaculos.Length; i++)
             {
                 obstaculos[i].speed = 20;
             }
+            for (int i = 0; i < generatorOfLevels.Length; i++)
+            {
+                generatorOfLevels[i].timeToRespawn = 2f;
+            }
+        }*/
+        if(score >= 10)
+        {
+            speedLoopMap.speed = 30;
+            for(int i = 0; i < obstaculos.Length; i++)
+            {
+                obstaculos[i].speed =30;
+            }
+            for(int i = 0; i < generatorOfLevels.Length; i++)
+            {
+                generatorOfLevels[i].timeToRespawn = 1f;
+            }
         }
-        else if (score >= 120)
+        /*else if (score >= 120)
         {
             speedLoopMap.speed = 25;
             for (int i = 0; i < obstaculos.Length; i++)
             {
                 obstaculos[i].speed = 25;
             }
-        }
+        }*/
 
     }
     public void Score()
@@ -105,6 +125,7 @@ public class GameManager : MonoBehaviour
     {
         if (menupause == false)
         {
+            cm2.Priority = 9;
             StartCoroutine(TimeToReady());
         }
     }
@@ -121,6 +142,8 @@ public class GameManager : MonoBehaviour
             menupause = false;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
+            cm2.Priority = 11;
+            
         }/*else if(value.started && menupause == false)
         {
             StartCoroutine(TimeToReady());
