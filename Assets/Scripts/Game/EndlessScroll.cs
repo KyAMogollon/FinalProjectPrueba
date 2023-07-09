@@ -23,7 +23,6 @@ public class EndlessScroll : MonoBehaviour
     }
     void Start()
     {
-        GeneradorParteNivel();
         //InvokeRepeating("GeneradorParteNivel", timeToRespawn, timeToRespawn);
     }
 

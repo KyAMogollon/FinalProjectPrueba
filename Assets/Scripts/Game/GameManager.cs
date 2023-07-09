@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
     }
     // Update is called once per frame
     void Update()
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
                 generatorOfLevels[i].timeToRespawn = 2f;
             }
         }*/
-        /*if(score >= 10)
+        if(score >= 10)
         {
             speedLoopMap.speed = 30;
             for(int i = 0; i < obstaculos.Length; i++)
@@ -66,7 +67,17 @@ public class GameManager : MonoBehaviour
             {
                 generatorOfLevels[i].timeToRespawn = 1f;
             }
-        }*/
+        }else if(score < 10)
+        {
+            for (int i = 0; i < obstaculos.Length; i++)
+            {
+                obstaculos[i].speed = 15;
+            }
+            for (int i = 0; i < generatorOfLevels.Length; i++)
+            {
+                generatorOfLevels[i].timeToRespawn = 3f;
+            }
+        }
         /*else if (score >= 120)
         {
             speedLoopMap.speed = 25;
