@@ -12,7 +12,6 @@ public class WaveController : MonoBehaviour
     void Start()
     {
         savePosition = transform.position.x;
-        Debug.Log(savePosition);
     }
 
     // Update is called once per frame
@@ -22,7 +21,7 @@ public class WaveController : MonoBehaviour
         if (timeToReset >= timeToReturnPosition)
         {
             timeToReset = 0;
-            if (transform.position.x >= savePosition)
+            if (transform.position.x > savePosition)
             {
                 while (suavizado <= 1)
                 {

@@ -109,12 +109,8 @@ public class PlayerController : MonoBehaviour
         if (value.started)
         {
             CurrentPower.GetComponent<PowerUps>().Ability(index);
-            while (suavizado <= 1)
-            {
-                suavizado+=Time.deltaTime;
-                wave.transform.position = new Vector3(wave.transform.position.x + suavizado, wave.transform.position.y, wave.transform.position.z);
-            }
-            suavizado = 0;
+            //wave.transform.position = new Vector3(wave.transform.position.x + 1, wave.transform.position.y, wave.transform.position.z);
+            //SuavizadoMethod();
         }
     }
     public void OnMovementFront(InputAction.CallbackContext value)
@@ -153,6 +149,15 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+    }
+    private void SuavizadoMethod()
+    {
+        if (suavizado <= 1)
+        {
+            suavizado += Time.deltaTime;
+            wave.transform.position = new Vector3(wave.transform.position.x + suavizado, wave.transform.position.y, wave.transform.position.z);
+        }
+        suavizado = 0;
     }
     private void OnTriggerEnter(Collider collision)
     {
