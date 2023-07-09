@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
                 generatorOfLevels[i].timeToRespawn = 2f;
             }
         }*/
-        if(score >= 10)
+        /*if(score >= 10)
         {
             speedLoopMap.speed = 30;
             for(int i = 0; i < obstaculos.Length; i++)
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
             {
                 generatorOfLevels[i].timeToRespawn = 3f;
             }
-        }
+        }*/
         /*else if (score >= 120)
         {
             speedLoopMap.speed = 25;

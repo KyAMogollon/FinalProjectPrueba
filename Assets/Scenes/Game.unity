@@ -1236,6 +1236,7 @@ MonoBehaviour:
   gameManager: {fileID: 461839772}
   gravity: {x: 0, y: -130, z: 0}
   speedJump: {x: 0, y: 30, z: 0}
+  wave: {fileID: 1305442859}
 --- !u!23 &261890535
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6426,6 +6427,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01078486, y: 0.020416094, z: 0.006266457}
   m_Center: {x: -0.0021310912, y: -0.00012406356, z: 0.0031332278}
+--- !u!114 &1305442859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305442854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdd415d24e35814db69fd660be71988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1309110284
 GameObject:
   m_ObjectHideFlags: 0
