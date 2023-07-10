@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     public Vector3 gravity;
     public Vector3 speedJump;
     [SerializeField] WaveController wave;
-    private float suavizado;
     private void Awake()
     {
         Physics.gravity = gravity;
@@ -109,8 +108,7 @@ public class PlayerController : MonoBehaviour
         if (value.started)
         {
             CurrentPower.GetComponent<PowerUps>().Ability(index);
-            //wave.transform.position = new Vector3(wave.transform.position.x + 1, wave.transform.position.y, wave.transform.position.z);
-            //SuavizadoMethod();
+            wave.transform.position = new Vector3(wave.transform.position.x + 1, wave.transform.position.y, wave.transform.position.z);
         }
     }
     public void OnMovementFront(InputAction.CallbackContext value)
@@ -150,15 +148,20 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
     }
-    private void SuavizadoMethod()
+    /*IEnumerator TimeToMoveWave()
     {
-        if (suavizado <= 1)
+        if (waveMove == true)
         {
-            suavizado += Time.deltaTime;
-            wave.transform.position = new Vector3(wave.transform.position.x + suavizado, wave.transform.position.y, wave.transform.position.z);
+            float avanzar = 0.10f;
+            float avanzar2 = avanzar;
+            while (avanzar < 1)
+            {
+                wave.transform.position = new Vector3(wave.transform.position.x + avanzar2, wave.transform.position.y, wave.transform.position.z);
+                avanzar += 0.10f;
+            }
         }
-        suavizado = 0;
-    }
+
+    }*/
     private void OnTriggerEnter(Collider collision)
     {
         /*if (collision.gameObject.tag == "PowerUps")
@@ -171,10 +174,10 @@ public class PlayerController : MonoBehaviour
             index = saveIndex;
             Oncollision?.Invoke(saveIndex);
         }*/
-        /*if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Wave")
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Wave")
         {
             Time.timeScale = 0;
             gameManager.GameOverMethod();
-        }*/
+        }
     }
 }

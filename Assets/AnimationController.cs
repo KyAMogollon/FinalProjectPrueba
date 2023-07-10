@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    public Animator animation;
+    public Animator animationPlayer;
     // Start is called before the first frame update
     void Start()
     {
-        animation = GetComponent<Animator>();
+        animationPlayer = GetComponent<Animator>();
     }
 
     // Update is called once per frame

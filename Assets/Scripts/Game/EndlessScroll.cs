@@ -16,9 +16,7 @@ public class EndlessScroll : MonoBehaviour
     private void Awake()
     {
         listObstaculos = new GenericList<GameObject>();
-        listObstaculos.AddNoteAtStart(obstaculo1);
-        listObstaculos.AddNoteAtStart(obstaculo2);
-        listObstaculos.AddNoteAtStart(obstaculo3);
+        InsertValues();
         //listObstaculos.AddNoteAtStart(obstaculo4);
     }
     void Start()
@@ -41,6 +39,12 @@ public class EndlessScroll : MonoBehaviour
         int numeroAleatorio=Random.Range(0,listObstaculos.Count);
         Instantiate(listObstaculos.GetNodeAtPosition(numeroAleatorio), puntoFinal.position, Quaternion.identity);
         //puntoFinal = BuscarPuntoFinal(nivel, "PuntoFinal");
+    }
+    public void InsertValues()
+    {
+        listObstaculos.AddNoteAtStart(obstaculo1);
+        listObstaculos.AddNoteAtStart(obstaculo2);
+        listObstaculos.AddNoteAtStart(obstaculo3);
     }
     /*private Transform BuscarPuntoFinal(GameObject parteDeNivel, string tag)
     {
