@@ -211,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 42134643}
   - component: {fileID: 42134644}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArenaCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,6 +1236,9 @@ MonoBehaviour:
   gravity: {x: 0, y: -130, z: 0}
   speedJump: {x: 0, y: 30, z: 0}
   wave: {fileID: 1305442859}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!23 &261890535
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3387,7 +3390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629955907}
   - component: {fileID: 629955908}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CercaCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4063,7 +4066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804772176}
   - component: {fileID: 804772177}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ArenaCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4184,7 +4187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 861941942}
   - component: {fileID: 861941943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CercaCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4294,6 +4297,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4720168162678092576, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -3080696042935323963, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4361,6 +4368,10 @@ PrefabInstance:
     - target: {fileID: 6456414707204425477, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579749742559010363, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7861854473326295642, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_IsActive
@@ -4751,7 +4762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &958730276
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7052,6 +7063,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4720168162678092576, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -3080696042935323963, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7079,6 +7094,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_Name
       value: EscenarioPlayaFinal
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4601069518896846823, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_LocalScale.x
@@ -7135,6 +7154,10 @@ PrefabInstance:
     - target: {fileID: 6456414707204425477, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -34.309
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579749742559010363, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7861854473326295642, guid: 7070af8c0e1c35f4ead9bc94f1f0521b, type: 3}
       propertyPath: m_IsActive
@@ -8327,7 +8350,7 @@ RectTransform:
   m_GameObject: {fileID: 1720215671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.16301, y: 6.7692842, z: 5.702851}
+  m_LocalScale: {x: 7.6106052, y: 4.615095, z: 3.8880327}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2138577278}
@@ -8338,7 +8361,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22, y: -145.2}
+  m_AnchoredPosition: {x: 265, y: 176}
   m_SizeDelta: {x: 31.2, y: 16.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720215673

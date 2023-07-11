@@ -29,8 +29,12 @@ public class PlayerController : MonoBehaviour
     public Vector3 gravity;
     public Vector3 speedJump;
     [SerializeField] WaveController wave;
+    Animator animation;
+    [SerializeField]LayerMask layermask;
+    bool suelo;
     private void Awake()
     {
+        animation = GetComponentInChildren<Animator>();
         Physics.gravity = gravity;
     }
     void Start()
@@ -49,6 +53,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Oncollision?.Invoke(index);
+
     }
     private void FixedUpdate()
     {
@@ -56,13 +61,14 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, 1.03f))
+        suelo = Physics.Raycast(transform.position, Vector3.down, 1.03f);
+        if (suelo)
         {
             isJump = true;
             if (isJump)
             {
-                //_rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
                 _rb.velocity = speedJump;
+                animation.SetTrigger("tambienSuelo");
             }
         }
     }
@@ -178,6 +184,10 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 0;
             gameManager.GameOverMethod();
+        }
+        while (transform.localScale.x >=1)
+        {
+
         }
     }
 }
