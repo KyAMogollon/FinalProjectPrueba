@@ -29,12 +29,12 @@ public class PlayerController : MonoBehaviour
     public Vector3 gravity;
     public Vector3 speedJump;
     [SerializeField] WaveController wave;
-    Animator animation;
+    Animator animationPlayer;
     [SerializeField]LayerMask layermask;
     bool suelo;
     private void Awake()
     {
-        animation = GetComponentInChildren<Animator>();
+        animationPlayer = GetComponentInChildren<Animator>();
         Physics.gravity = gravity;
     }
     void Start()
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
             if (isJump)
             {
                 _rb.velocity = speedJump;
-                animation.SetTrigger("tambienSuelo");
+                animationPlayer.SetTrigger("tambienSuelo");
             }
         }
     }
@@ -180,14 +180,15 @@ public class PlayerController : MonoBehaviour
             index = saveIndex;
             Oncollision?.Invoke(saveIndex);
         }*/
-        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Wave")
+        if(transform.localScale.x==1&&collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Wave")
         {
             Time.timeScale = 0;
             gameManager.GameOverMethod();
         }
-        while (transform.localScale.x >=1)
+        if(collision.gameObject.tag=="Enemy" && transform.localScale.x == 1.5f)
         {
-
+            Destroy(collision.gameObject);
+            wave.transform.position=new Vector3(wave.transform.position.x+5,wave.transform.position.y,wave.transform.position.z);
         }
     }
 }

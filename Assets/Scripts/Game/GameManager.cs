@@ -44,8 +44,9 @@ public class GameManager : MonoBehaviour
     }
     public void CheckQuantityOfScore()
     {
-        /*if (score < 10)
+        if (score < 10)
         {
+            
             for (int i = 0; i < obstaculos.Length; i++)
             {
                 obstaculos[i].speed = 15;
@@ -55,34 +56,50 @@ public class GameManager : MonoBehaviour
                 generatorOfLevels[i].timeToRespawn = 3f;
             }
         }
-        if (score > 10 && score < 100)
+        if (score >= 60 && score < 99)
         {
-            speedLoopMap.speed = 20;
+            StartCoroutine(TimeToOBstaculos());
+        }
+        if(score >=102)
+        {
+            StopCoroutine(TimeToOBstaculos2());
+            speedLoopMap.speed = 25;
             for(int i = 0; i < obstaculos.Length; i++)
             {
-                Destroy(obstaculos[i]);
-            }
-            for (int i = 0; i < obstaculos.Length; i++)
-            {
-                obstaculos[i].speed = 20;
-            }
-            for (int i = 0; i < generatorOfLevels.Length; i++)
-            {
-                generatorOfLevels[i].timeToRespawn = 2f;
-            }
-        }*/
-        /*if(score > 100&&score<160)
-        {
-            speedLoopMap.speed = 30;
-            for(int i = 0; i < obstaculos.Length; i++)
-            {
-                obstaculos[i].speed =30;
+                obstaculos[i].speed =25;
             }
             for(int i = 0; i < generatorOfLevels.Length; i++)
             {
                 generatorOfLevels[i].timeToRespawn = 1f;
             }
-        }*/
+        }
+    }
+    IEnumerator TimeToOBstaculos2()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        speedLoopMap.speed = 25;
+        for (int i = 0; i < obstaculos.Length; i++)
+        {
+            obstaculos[i].speed = 25;
+        }
+        for (int i = 0; i < generatorOfLevels.Length; i++)
+        {
+            generatorOfLevels[i].timeToRespawn = 1f;
+        }
+    }
+    IEnumerator TimeToOBstaculos()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        speedLoopMap.speed = 20;
+        for (int i = 0; i < obstaculos.Length; i++)
+        {
+            obstaculos[i].speed = 20;
+        }
+        for (int i = 0; i < generatorOfLevels.Length; i++)
+        {
+            generatorOfLevels[i].timeToRespawn = 2f;
+        }
+
     }
     public void Score()
     {
