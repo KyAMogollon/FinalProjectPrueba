@@ -16,7 +16,7 @@ TagManager:
   - Suelo
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -45,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 272323719
     locked: 0
